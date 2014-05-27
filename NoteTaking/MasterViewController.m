@@ -82,7 +82,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [[Data getAllNotes] objectForKey:[object description]];
+    cell.textLabel.font = [UIFont systemFontOfSize:15];
+    NSString *text = [[Data getAllNotes] objectForKey:[object description]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ created on : %@", text,[object description]];
     return cell;
 }
 
